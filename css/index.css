@@ -8,4 +8,76 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	overflow: hidden;
+}
+
+h1 {
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+}
+
+.top {
+	top: 0;
+	left: 0;
+}
+
+.bottom {
+	bottom: 0;
+	left: 0;
+}
+
+.left {
+	top: 0;
+	bottom: 0;
+	left:0;
+	transform-origin: 0 50%;
+	transform: rotate(-90deg) translate(-50%, 50%);
+}
+
+.right {
+	top: 0;
+	bottom: 0;
+	right:0;
+	transform-origin: 100% 50%;
+	transform: rotate(90deg) translate(50%, 50%);
+}
+
+#anim {
+	width: 95%;
+	height: 95%;
+	margin: auto;
+	z-index: 1;
+}
+@media (max-width: 1366px) {
+	#anim {
+		width: 75%;
+		height: 75%;
+	}
+}
+
+#anim > svg > g > g > g:nth-child(8) > path,
+#anim > svg > g > g > g:nth-child(9) > path,
+#anim > svg > g > g > g:nth-child(10) > path {
+	animation: rainbow 2s infinite;
+}
+
+#anim > svg > g > g > g:nth-child(5) > path:hover,
+#anim > svg > g > g > g:nth-child(6) > path:hover,
+#anim > svg > g > g > g:nth-child(7) > path:hover,
+#anim > svg > g > g > g:nth-child(8) > path:hover,
+#anim > svg > g > g > g:nth-child(9) > path:hover,
+#anim > svg > g > g > g:nth-child(10) > path:hover {
+	animation: scale .5s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes rainbow {
+	0%{ fill: rgb(255, 0, 0); }
+	100%{ fill: rgb(0, 0, 255); }
+}
+
+@keyframes scale {
+	100%{ transform: scale(1.1, 1.1); }
 }
